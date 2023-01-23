@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
+import { cart } from 'src/app/Interfaces/cart';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
 
-  cart: {id:number, name:string,image:string, price:number, quantity:number}[] = []
+  cart: cart[] = []
   userFullName: string = ''
   constructor() { }
 
@@ -13,10 +14,16 @@ export class CartService {
     return this.cart
   }
 
-  addProduct(product: {id:number, name:string, image:string, price:number, quantity:number}) {
-    this.cart.push(product)
-    alert(product.name+" added to cart")
-    return this.cart;
+  addProduct(product: cart) {
+    if(this.cart.find(x=> x.id == product.id)){
+      alert(product.name + " is already added. You can adjust quantity in cart.")
+      return this.cart
+    }else{
+      this.cart.push(product)
+      alert(product.name+" added to cart")
+      return this.cart;
+    }
+
   }
 
   removeProduct(id:number) {

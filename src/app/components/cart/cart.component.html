@@ -2,10 +2,10 @@
 
 <div *ngIf="cart.length != 0;" class="cart-container">
     <div class="cart-items cart-panel">
-        <app-product-item-cart 
-        *ngFor="let product of cart" 
+        <app-product-item-cart
+        *ngFor="let product of cart"
         [id]="product.id"
-        [imageURL]="product.image"
+        [imageURL]="product.imageUrl"
         [productName]="product.name"
         [price]="product.price"
         [quantity]="product.quantity"
@@ -14,13 +14,13 @@
 
         <h1>Total price: {{totalPrice}}$</h1>
 
-        
+
 
     </div>
     <form #form="ngForm" (ngSubmit)="onSubmit()">
         <div class="mb-3">
             <label for="name" class="form-label">Full Name</label>
-            <input type="text" class="form-control" required minlength="3" id="name" placeholder="Ibrahim Othman" [(ngModel)]="fullName" name="fullName">
+            <input type="text" class="form-control" required minlength="3" id="name" placeholder="Ibrahim Othman" [(ngModel)]="user.fullName" name="fullName">
             <ul>
                 <li>
                     Has to be more than 3 characters
@@ -30,7 +30,7 @@
 
         <div class="mb-3">
             <label for="address" class="form-label">Address</label>
-            <input type="text" class="form-control" required minlength="6" id="address" placeholder="123 Riyadh"  [(ngModel)]="address" name="address">
+            <input type="text" class="form-control" required minlength="6" id="address" placeholder="123 Riyadh"  [(ngModel)]="user.address" name="address">
             <ul>
                 <li>
                     Has to be more than 6 characters
@@ -40,7 +40,7 @@
 
         <div class="mb-3">
             <label for="CC" class="form-label">Credit Card</label>
-            <input type="text" class="form-control" required pattern="^([0-9]{16})$" id="CC" placeholder="123412341234" [(ngModel)]="creditCard" name="CC">
+            <input type="text" class="form-control" required pattern="^([0-9]{16})$" id="CC" placeholder="123412341234" [(ngModel)]="user.creditCard" name="CC">
             <ul>
                 <li>
                     Has to be exactly 16 digits

@@ -24,7 +24,7 @@ export class ProductItemComponent {
     this.cartService.addProduct({
       id:this.id,
       name:this.productName,
-      image:this.imageURL,
+      imageUrl:this.imageURL,
       price:this.price,
       quantity:this.quantity
     })

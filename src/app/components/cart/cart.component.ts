@@ -1,5 +1,7 @@
 import { Component,OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { cart } from 'src/app/Interfaces/cart';
+import { userInfo } from 'src/app/Interfaces/userInfo';
 import { CartService } from 'src/app/services/cart/cart.service';
 
 @Component({
@@ -9,12 +11,11 @@ import { CartService } from 'src/app/services/cart/cart.service';
 })
 export class CartComponent implements OnInit {
 
-  cart: {id:number, name:string, image:string, price:number, quantity:number}[] = []
+  cart: cart[] = []
   totalPrice: number = 0
 
-  fullName: string = ''
-  address: string = ''
-  creditCard: string = ''
+  user: userInfo = <userInfo>{}
+
   constructor(private cartService: CartService, private router: Router){}
 
   ngOnInit(): void {
@@ -35,7 +36,7 @@ export class CartComponent implements OnInit {
   }
 
   onSubmit(){
-    this.cartService.setFullname(this.fullName)
+    this.cartService.setFullname(this.user.fullName)
     this.router.navigate(['/confirm'])
   }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { product } from 'src/app/Interfaces/product';
 import { HttpService } from 'src/app/services/http/http.service';
 
 
@@ -9,7 +10,7 @@ import { HttpService } from 'src/app/services/http/http.service';
 })
 export class ProductListComponent implements OnInit {
 
-  products: {id: number; productName: string; price: number; imageURL: string; description: string; }[] = [];
+  products: product[] = [];
 
   constructor(private httpService: HttpService){}
 
