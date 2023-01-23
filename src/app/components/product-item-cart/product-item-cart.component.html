@@ -1,0 +1,10 @@
+<div class="cart-item">
+    <img
+        src={{imageURL}} />
+
+    <div class="cart-item-details">
+        <h2>{{productName}}</h2>
+        <p>Price: {{price}}</p>
+        <input [(ngModel)]="quantity" min="0" name="qunatity" (ngModelChange)="checkRemove()" class="number-input" type="number" value="{{quantity}}">
+    </div>
+</div>
